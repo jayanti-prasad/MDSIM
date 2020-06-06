@@ -15,6 +15,7 @@
 
 - [GTOMACS Tutorials 3 (Namkul)](https://github.com/jalemkul/gmx_tutorials_livecoms/blob/master/gmx_tutorials.pdf)
 
+- [FOR MDRUN PERFORMANCE](http://manual.gromacs.org/documentation/5.1/user-guide/mdrun-performance.html)
 
 ## References 
 
