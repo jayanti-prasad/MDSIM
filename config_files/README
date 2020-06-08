@@ -1,0 +1,7 @@
+STEP1 : 
+
+perl write_mdp.pl em_steep.mdp
+
+STEP2 :
+
+job.sh
