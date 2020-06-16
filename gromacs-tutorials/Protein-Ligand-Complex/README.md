@@ -170,9 +170,10 @@
    
      <img src="images/top_edit.png"> 
 
-    <figure>
-    <img src="images/top_edit.png" height="50%" width="50%">
-    <figcaption> Editing topology file </figcaption>
-    </figure>
+    
+<figure>
+<img src="images/top_edit.png" height="50%" width="50%">
+<figcaption> Editing topology file </figcaption>
+</figure>
    
 
