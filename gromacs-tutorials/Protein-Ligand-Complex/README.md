@@ -194,15 +194,15 @@
 
 ## 4. Molecular dynamics simulations
 
-    Now we have all the ingredients in place so create an input file for the simulation with 
+   - Now we have all the ingredients in place so create an input file for the simulation with 
 
-    > `gmx grompp -f config/em.mdp -c solv_ions.gro -p topol.top -o em.tpr`
+     > `gmx grompp -f config/em.mdp -c solv_ions.gro -p topol.top -o em.tpr`
 
-    Once our input file 'em.trp' is ready we can go ahead and start the simulation run with :
+     Once our input file 'em.trp' is ready we can go ahead and start the simulation run with :
 
-    > `gmx mdrun -v -deffnm em`
+     > `gmx mdrun -v -deffnm em`
 
-    If you are successful you will get something like the following on your terminal.
+     If you are successful you will get something like the following on your terminal.
 
  
 <figure>
