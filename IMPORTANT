@@ -1,0 +1,16 @@
+Create toplogy file from external force field :
+
+
+Keep the force field directory in pwd
+
+
+gmx pdb2gmx -f ~/Data/Chemistry/RITU/6M71/6M71_C_O.pdb  -water tip3p -missing -ff amber14sb_parmbsc1 -ignh
+
+
+help :
+
+https://www.researchgate.net/post/How_can_I_rectify_the_following_GROMACS_error_Fatal_error_Atom_HB3_in_residue_SER_3_was_not_found_in_rtp_entry_SER_with_8_atoms_while_sorting_atoms
+
+http://www.gromacs.org/Documentation_of_outdated_version/How-tos/Adding_a_Residue_to_a_Force_Field
+http://www.gromacs.org/Downloads/User_contributions/Force_fields
+
