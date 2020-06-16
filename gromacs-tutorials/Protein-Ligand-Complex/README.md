@@ -15,9 +15,7 @@
 - The original tutotial also misses many important steps in between and so the chains of
   steps to reach the last step is broken.
 
-## What I am presensing ?
-
--  I am giving here :
+## What I am giving here ?
 
  * A set of scripts 
 
