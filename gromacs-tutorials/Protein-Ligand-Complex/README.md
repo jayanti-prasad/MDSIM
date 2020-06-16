@@ -55,11 +55,20 @@
     Please cheak the path of your downloaded file (I am having it in 'data' folder). In fact 
     you do not need it to download and you can just use what I have. 
 
+    <figure>
     <img src="images/raw.png" height="50%" width="50%">
+    <figcaption> Raw image </figcaption>
+    </figure>
 
+    <figure>
     <img src="images/lysozyme.png" height="50%" width="50%">
+    <figcaption> Protein Chain A (Lysozyme) </figcaption>
+    </figure>
 
-    <img src=images/jz4.pn" height="50%" width="50%">
+    <figure>
+    <img src=images/jz4.png" height="50%" width="50%">
+    <figcaption> Ligand JZ4 </figcaption>
+    </figure>
 
   
  
