@@ -2,7 +2,7 @@
 
 ## What it is ?
 
--  This is a tutorial to dimulate a protein-ligand system using molecular dynamics with 
+-  This is a tutorial to simulate a protein-ligand system using molecular dynamics with 
    Gromacs.
 
 -  Reference to the original tutorial is given below.
@@ -18,8 +18,11 @@
 ## What I am presensing ?
 
 -  I am giving here :
+
  . A set of scripts 
+
  . Explanations
+
  . Reference 
 
 
