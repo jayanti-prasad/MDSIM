@@ -33,6 +33,40 @@
 
 # Tutorial 
 
+## Introduction : 
+
+
+## Getting the data :
+
+  -  Step 1: Download the data (.pdb) file from [here](https://www.rcsb.org/structure/3HTB)
+
+  -  Step 2: Now we will extract chain A (lysozyme) and a legand (JZ4) from the combined pdb 
+     file with the following commands. Note that you can confirm the structure and content 
+     of the pdb file by loading it into [ChiemaraX)(https://www.rbvi.ucsf.edu/chimerax/)
+
+  -  Extracting the chain A :
+
+    `pdb_selchain -A data/3htb.pdb  | pdb_delhetatm | pdb_tidy > 3HTB_clean.pdb` 
+
+  - Extracting the legand JZ4 :
+
+    `grep JZ4 data/3htb.pdb  > jz4.pdb` 
+      
+    Please cheak the path of your downloaded file (I am having it in 'data' folder). In fact 
+    you do not need it to download and you can just use what I have. 
+
+    ![Combined system](images/raw.png)
+
+    ![chain A (lysozyme)](images/lysozyme.png)
+
+    ![Combined system](images/jz4.png)
+
+  
+ 
+
+
+
+
 
 
   
