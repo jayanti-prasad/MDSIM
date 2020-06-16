@@ -5,7 +5,7 @@
 -  This is a tutorial to simulate a protein-ligand system using molecular dynamics with 
    Gromacs.
 
--  Reference to the original tutorial is given below.
+-  Reference to the original tutorial is [here](http://www.mdtutorials.com/gmx/complex/index.html)
 
 ## Why this tutorial is written ?
 
@@ -20,9 +20,6 @@
  * A set of scripts 
 
  * Explanations
-
- * Reference 
-
 
 
 ## Contact :
@@ -104,7 +101,7 @@
      they will work. You can check [here](http://manual.gromacs.org/2019/reference-manual/topologies.html) for more. 
 
 
-### 1. Create the topology file for the protein 
+## 1. Create the topology file for the protein 
 
      We already have protein pdb file (3HTB_clean.pdb) so we can apply 'pb2gmx' on it in the following way. 
 
@@ -125,7 +122,7 @@
      - posre.itp  : Position information file.  
  
 
-### 2. Create the topology file for the Ligand 
+## 2. Create the topology file for the Ligand 
 
      - Step 1: Convert ligand file to '.mol2' using  Avagadro following thse instructions:
 
@@ -175,7 +172,7 @@
 </figure>
    
 
-### 3. Defining the Unit Cell & Adding Solvent
+## 3. Defining the Unit Cell & Adding Solvent
 
   - If the topology file is correct then you can run the following two commands without any issue.
 
@@ -194,7 +191,7 @@
     The second command asks for an input so give '15'
 
 
-### 4. Molecular dynamics simulations
+## 4. Molecular dynamics simulations
 
     Now we have all the ingredients in place so create an input file for the simulation with 
 
