@@ -33,7 +33,7 @@
 
 # Tutorial 
 
-## Requirements :
+## A. Requirements :
 
   * Python 3.0 
 
@@ -44,9 +44,11 @@
   * [AVAGADRO](http://manual.gromacs.org/)
 
   * [NETWORKX (1.11)](https://networkx.github.io/documentation/stable/)
+
+  * [PBD Tools](https://github.com/haddocking/pdb-tools/)
   
 
-## Getting the data :
+## B. Getting the data :
 
   -  Step 1: Download the data (.pdb) file from [here](https://www.rcsb.org/structure/3HTB)
 
@@ -80,7 +82,7 @@
     <figcaption> Ligand JZ4 </figcaption>
     </figure>
 
-## Preparing the scripts 
+## C. Preparing the scripts 
 
     Now we have two pdb files, one for the protein and another for the ligand. In order to
     carry out molecular dynamics simulations we need at least the following three files:
@@ -103,7 +105,7 @@
      they will work. You can check [here](http://manual.gromacs.org/2019/reference-manual/topologies.html) for more. 
 
 
-### Create the topology file for the protein 
+### 1. Create the topology file for the protein 
 
      We already have protein pdb file (3HTB_clean.pdb) so we can apply 'pb2gmx' on it in the following way. 
 
@@ -124,12 +126,52 @@
      - posre.itp  : Position information file.  
  
 
+### 2. Create the topology file for the Ligand 
 
- 
+     - Step 1: Convert ligand file to '.mol2' using  Avagadro following thse instructions:
+
+      (i)  Open jz4.pdb in Avagadro  (ii) from the "Build" menu, choose "Add Hydrogens" (iii)
+       save a .mol2 file (File -> Save As... and choose Sybyl Mol2 from the drop-down menu) named "jz4.mol2.         
+      
+       Once the '.mol2' file is created we must clean it and you can use the following command for that.
+
+      `python clean_mol2.py jz4.mol2 JZ4 > jz4_clean.mol2`
+
+       Note that the script 'clean_mol2.py' is by written by me and may not work for other cases so
+       you may need to clean that manually by using some editor.
+
+    - Step 2: Now visit  [CGenFF](https://cgenff.umaryland.edu/initguess/) and after registration upload 
+      'jz4_clean.mol2' file there for creating topology.
+      The topolgy will be created in a '.str' file so clean on that and copy and paste the content of that
+      in a file of the same name - 'jz4_clean.str'
+
+    - Step 3 : Now  create the actual topolgy file by running the following python script:
+
+     `python cgenff_charmm2gmx_py3_nx1.py JZ4 jz4_clean.mol2 jz4_clean.str charmm36-mar2019.ff/`
+
+      This may give some warning which you can ignore and look for the following two files:
+      (i) jz4.itp (ii) jz4.prm and (iii) jz4_ini.pdb
+
+    - Step 4: Get the coordinates of the ligand from the output 'pdb' file in the last step with the follwing command:
+
+    `gmx editconf -f jz4_ini.pdb -o jz4.gro`
+
+    - Step 4: Now we have to create a 'gro' file which has coordinates of both the protein and ligand.
+     and for that we must copy the content from 'jz4.gro' file to a copy of the 'gro' file of the proten.
+
+     So let us make a copy of the protein 'gro' file 
+
+    `cp 3HTB_processed.gro complex.gro'
+
+     Now insert the content from 'jz4.gro' to 'complex.gro' follwing 
+     the instruction [here](http://www.mdtutorials.com/gmx/complex/02_topology.html)            
+
+    - Step 5: This is most complex step and involve 'topol.top' file created for the protein 
+     So you need to make the following changes in that:
+   
+     <img src="top_edit.png"> 
 
 
+   
 
 
-
-
-  
