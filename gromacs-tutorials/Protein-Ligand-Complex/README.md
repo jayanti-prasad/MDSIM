@@ -55,11 +55,11 @@
     Please cheak the path of your downloaded file (I am having it in 'data' folder). In fact 
     you do not need it to download and you can just use what I have. 
 
-    ![Combined system](images/raw.png)<!-- .element height="50%" width="50%" -->
+    <img src="images/raw.png" height="50%" width="50%">
 
-    ![chain A (lysozyme)](images/lysozyme.png)<!-- .element height="50%" width="50%" -->
+    <img src="images/lysozyme.png" height="50%" width="50%">
 
-    ![Combined system](images/jz4.pn)<!-- .element height="50%" width="50%" -->
+    <img src=images/jz4.pn" height="50%" width="50%">
 
   
  
