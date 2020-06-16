@@ -33,8 +33,18 @@
 
 # Tutorial 
 
-## Introduction : 
+## Requirments :
 
+  * Python 3.0 
+
+  * [GROMACS version:    2020.2-UNCHECKED] (http://manual.gromacs.org/)
+
+  * [UCSF ChimeraX version 1.0 (2020-05-29)](http://www.rbvi.ucsf.edu/chimerax)
+
+  * [AVAGADRO](http://manual.gromacs.org/)
+
+  * [NETWORKX (1.11)](https://networkx.github.io/documentation/stable/)
+  
 
 ## Getting the data :
 
