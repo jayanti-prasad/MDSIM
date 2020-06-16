@@ -9,7 +9,7 @@
 
 ## Why this tutorial is written ?
 
-- I have noticed that the original tutorial is too length and that makes hard to read 
+- I have noticed that the original tutorial is too lengthy and that makes it hard to read 
   each and every detail and so does not help much.
 
 - The original tutorial also misses many important steps in between and so the chains of
@@ -98,7 +98,8 @@
      and the 'water model' being used. 
 
      There are many online tools which can be used to create a topology file but there is no guarantee that
-     they will work. You can check [here](http://manual.gromacs.org/2019/reference-manual/topologies.html) for more. 
+     they will work. You can check 
+   [here] (http://manual.gromacs.org/2019/reference-manual/topologies.html) for more. 
 
 
 ## 1. Create the topology file for the protein 
