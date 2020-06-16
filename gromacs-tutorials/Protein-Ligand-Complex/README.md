@@ -55,11 +55,11 @@
 
   -  Extracting the chain A :
 
-    `pdb_selchain -A data/3htb.pdb  | pdb_delhetatm | pdb_tidy > 3HTB_clean.pdb` 
+    > `pdb_selchain -A data/3htb.pdb  | pdb_delhetatm | pdb_tidy > 3HTB_clean.pdb` 
 
   - Extracting the ligand JZ4 :
 
-    `grep JZ4 data/3htb.pdb  > jz4.pdb` 
+    > `grep JZ4 data/3htb.pdb  > jz4.pdb` 
       
     Please check the path of your downloaded file (I am having it in 'data' folder). In fact 
 
@@ -106,7 +106,7 @@
 
      We already have protein pdb file (3HTB_clean.pdb) so we can apply 'pb2gmx' on it in the following way. 
 
-    `gmx pdb2gmx -f 3HTB_clean.pdb -o 3HTB_processed.gro`
+     > `gmx pdb2gmx -f 3HTB_clean.pdb -o 3HTB_processed.gro`
 
      Please note the following :
 
@@ -132,7 +132,7 @@
       
        Once the '.mol2' file is created we must clean it and you can use the following command for that.
 
-      `python clean_mol2.py jz4.mol2 JZ4 > jz4_clean.mol2`
+       > `python clean_mol2.py jz4.mol2 JZ4 > jz4_clean.mol2`
 
        Note that the script 'clean_mol2.py' is by written by me and may not work for other cases so
        you may need to clean that manually by using some editor.
@@ -151,7 +151,7 @@
 
     - Step 4: Get the coordinates of the ligand from the output 'pdb' file in the last step with the follwing command:
 
-    `gmx editconf -f jz4_ini.pdb -o jz4.gro`
+     > `gmx editconf -f jz4_ini.pdb -o jz4.gro`
 
     - Step 4: Now we have to create a 'gro' file which has coordinates of both the protein and ligand.
      and for that we must copy the content from 'jz4.gro' file to a copy of the 'gro' file of the protein.
@@ -177,9 +177,9 @@
 
   - If the topology file is correct then you can run the following two commands without any issue.
 
-   `gmx editconf -f complex.gro -o newbox.gro -bt dodecahedron -d 1.0`
+    > `gmx editconf -f complex.gro -o newbox.gro -bt dodecahedron -d 1.0`
 
-   `gmx solvate -cp newbox.gro -cs spc216.gro -p topol.top -o solv.gro`
+    > `gmx solvate -cp newbox.gro -cs spc216.gro -p topol.top -o solv.gro`
 
     you can check the Gromacs tutorial page for the reference.
 
@@ -196,9 +196,12 @@
 
     Now we have all the ingredients in place so create an input file for the simulation with 
 
-    `gmx grompp -f config/em.mdp -c solv_ions.gro -p topol.top -o em.tpr`
+    > `gmx grompp -f config/em.mdp -c solv_ions.gro -p topol.top -o em.tpr`
 
     Once our input file 'em.trp' is ready we can go ahead and start the simulation run with :
+
+    > `gmx mdrun -v -deffnm em`
+
 
     If you are successful you will get something like the following on your terminal.
 
