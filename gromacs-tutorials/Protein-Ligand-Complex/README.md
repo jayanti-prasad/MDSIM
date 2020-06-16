@@ -19,11 +19,11 @@
 
 -  I am giving here :
 
- . A set of scripts 
+ * A set of scripts 
 
- . Explanations
+ * Explanations
 
- . Reference 
+ * Reference 
 
 
 
