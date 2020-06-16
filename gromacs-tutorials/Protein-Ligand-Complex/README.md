@@ -65,7 +65,6 @@
     `grep JZ4 data/3htb.pdb  > jz4.pdb` 
       
     Please check the path of your downloaded file (I am having it in 'data' folder). In fact 
-    you do not need it to download and you can just use what I have. 
 
     <figure>
     <img src="images/raw.png" height="50%" width="50%">
@@ -171,7 +170,9 @@
    
      <img src="images/top_edit.png"> 
 
-
+    <figure>
+    <img src="images/top_edit.png" height="50%" width="50%">
+    <figcaption> Editing topology file </figcaption>
+    </figure>
    
-
 
