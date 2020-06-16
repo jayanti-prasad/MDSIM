@@ -55,7 +55,7 @@
 
   -  Extracting the chain A :
 
-    > `pdb_selchain -A data/3htb.pdb  | pdb_delhetatm | pdb_tidy > 3HTB_clean.pdb` 
+     > pdb_selchain -A data/3htb.pdb  | pdb_delhetatm | pdb_tidy > 3HTB_clean.pdb
 
   - Extracting the ligand JZ4 :
 
@@ -144,7 +144,7 @@
 
     - Step 3 : Now  create the actual topolgy file by running the following python script:
 
-     `python cgenff_charmm2gmx_py3_nx1.py JZ4 jz4_clean.mol2 jz4_clean.str charmm36-mar2019.ff/`
+      > `python cgenff_charmm2gmx_py3_nx1.py JZ4 jz4_clean.mol2 jz4_clean.str charmm36-mar2019.ff/`
 
       This may give some warning which you can ignore and look for the following two files:
       (i) jz4.itp (ii) jz4.prm and (iii) jz4_ini.pdb
@@ -158,7 +158,7 @@
 
      So let us make a copy of the protein 'gro' file 
 
-    `cp 3HTB_processed.gro complex.gro'
+     > `cp 3HTB_processed.gro complex.gro'
 
      Now insert the content from 'jz4.gro' to 'complex.gro' follwing 
      the instruction [here](http://www.mdtutorials.com/gmx/complex/02_topology.html)            
@@ -185,9 +185,9 @@
 
   - Adding ions
 
-    `gmx grompp -f config/ions.mdp -c solv.gro -p topol.top -o ions.tpr`
+    > `gmx grompp -f config/ions.mdp -c solv.gro -p topol.top -o ions.tpr`
 
-    `gmx genion -s ions.tpr -o solv_ions.gro -p topol.top -pname NA -nname CL -neutral` 
+    > `gmx genion -s ions.tpr -o solv_ions.gro -p topol.top -pname NA -nname CL -neutral` 
 
     The second command asks for an input so give '15'
 
