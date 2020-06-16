@@ -169,7 +169,7 @@
     - Step 5: This is most complex step and involve 'topol.top' file created for the protein 
      So you need to make the following changes in that:
    
-     <img src="top_edit.png"> 
+     <img src="images/top_edit.png"> 
 
 
    
