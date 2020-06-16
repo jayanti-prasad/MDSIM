@@ -55,11 +55,11 @@
     Please cheak the path of your downloaded file (I am having it in 'data' folder). In fact 
     you do not need it to download and you can just use what I have. 
 
-    ![Combined system](images/raw.png)
+    ![Combined system](images/raw.png | width=100)
 
-    ![chain A (lysozyme)](images/lysozyme.png)
+    ![chain A (lysozyme)](images/lysozyme.png | width=100)
 
-    ![Combined system](images/jz4.png)
+    ![Combined system](images/jz4.png | width=100 )
 
   
  
