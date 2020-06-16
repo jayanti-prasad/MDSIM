@@ -66,7 +66,7 @@
     </figure>
 
     <figure>
-    <img src=images/jz4.png" height="50%" width="50%">
+    <img src="images/jz4.png" height="50%" width="50%">
     <figcaption> Ligand JZ4 </figcaption>
     </figure>
 
