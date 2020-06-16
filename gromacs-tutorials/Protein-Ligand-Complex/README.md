@@ -125,17 +125,17 @@
 
 ## 2. Create the topology file for the Ligand 
 
-     - Step 1: Convert ligand file to '.mol2' using  Avagadro following thse instructions:
+    - Step 1: Convert ligand file to '.mol2' using  Avagadro following thse instructions:
 
       (i)  Open jz4.pdb in Avagadro  (ii) from the "Build" menu, choose "Add Hydrogens" (iii)
-       save a .mol2 file (File -> Save As... and choose Sybyl Mol2 from the drop-down menu) named "jz4.mol2.         
+      save a .mol2 file (File -> Save As... and choose Sybyl Mol2 from the drop-down menu) named "jz4.mol2.         
       
-       Once the '.mol2' file is created we must clean it and you can use the following command for that.
+      Once the '.mol2' file is created we must clean it and you can use the following command for that.
 
-       > `python clean_mol2.py jz4.mol2 JZ4 > jz4_clean.mol2`
+      > `python clean_mol2.py jz4.mol2 JZ4 > jz4_clean.mol2`
 
-       Note that the script 'clean_mol2.py' is by written by me and may not work for other cases so
-       you may need to clean that manually by using some editor.
+      Note that the script 'clean_mol2.py' is by written by me and may not work for other cases so
+      you may need to clean that manually by using some editor.
 
     - Step 2: Now visit  [CGenFF](https://cgenff.umaryland.edu/initguess/) and after registration upload 
       'jz4_clean.mol2' file there for creating topology.
@@ -151,21 +151,21 @@
 
     - Step 4: Get the coordinates of the ligand from the output 'pdb' file in the last step with the follwing command:
 
-     > `gmx editconf -f jz4_ini.pdb -o jz4.gro`
+      > `gmx editconf -f jz4_ini.pdb -o jz4.gro`
 
     - Step 4: Now we have to create a 'gro' file which has coordinates of both the protein and ligand.
-     and for that we must copy the content from 'jz4.gro' file to a copy of the 'gro' file of the protein.
+      and for that we must copy the content from 'jz4.gro' file to a copy of the 'gro' file of the protein.
 
-     So let us make a copy of the protein 'gro' file 
+      So let us make a copy of the protein 'gro' file 
 
-     > `cp 3HTB_processed.gro complex.gro'
+      > `cp 3HTB_processed.gro complex.gro'
 
-     Now insert the content from 'jz4.gro' to 'complex.gro' follwing 
-     the instruction [here](http://www.mdtutorials.com/gmx/complex/02_topology.html)            
+      Now insert the content from 'jz4.gro' to 'complex.gro' follwing 
+      the instruction [here](http://www.mdtutorials.com/gmx/complex/02_topology.html)            
 
-    - Step 5: This is most complex step and involve 'topol.top' file created for the protein 
-     So you need to make the following changes in that:
-     for that see the image below.
+   -  Step 5: This is most complex step and involve 'topol.top' file created for the protein 
+      So you need to make the following changes in that:
+      for that see the image below.
     
 <figure>
 <img src="images/top_edit.png" height="50%" width="50%">
@@ -175,21 +175,21 @@
 
 ## 3. Defining the Unit Cell & Adding Solvent
 
-  - If the topology file is correct then you can run the following two commands without any issue.
+   - If the topology file is correct then you can run the following two commands without any issue.
 
-    > `gmx editconf -f complex.gro -o newbox.gro -bt dodecahedron -d 1.0`
+     > `gmx editconf -f complex.gro -o newbox.gro -bt dodecahedron -d 1.0`
 
-    > `gmx solvate -cp newbox.gro -cs spc216.gro -p topol.top -o solv.gro`
+     > `gmx solvate -cp newbox.gro -cs spc216.gro -p topol.top -o solv.gro`
 
-    you can check the Gromacs tutorial page for the reference.
+     you can check the Gromacs tutorial page for the reference.
 
-  - Adding ions
+   - Adding ions
 
-    > `gmx grompp -f config/ions.mdp -c solv.gro -p topol.top -o ions.tpr`
+     > `gmx grompp -f config/ions.mdp -c solv.gro -p topol.top -o ions.tpr`
 
-    > `gmx genion -s ions.tpr -o solv_ions.gro -p topol.top -pname NA -nname CL -neutral` 
+     > `gmx genion -s ions.tpr -o solv_ions.gro -p topol.top -pname NA -nname CL -neutral` 
 
-    The second command asks for an input so give '15'
+     The second command asks for an input so give '15'
 
 
 ## 4. Molecular dynamics simulations
@@ -201,7 +201,6 @@
     Once our input file 'em.trp' is ready we can go ahead and start the simulation run with :
 
     > `gmx mdrun -v -deffnm em`
-
 
     If you are successful you will get something like the following on your terminal.
 
@@ -227,7 +226,4 @@ Once the simulation runs are over post processing is something for which I do no
 anyone needs any tutorial.
 
 I will try to automate the whole process by writing my own python scripts so keep checking.
-
-
-
 
