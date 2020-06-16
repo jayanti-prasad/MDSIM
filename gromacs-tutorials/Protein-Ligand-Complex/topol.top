@@ -20,6 +20,9 @@
 ; Include forcefield parameters
 #include "./charmm36-mar2019.ff/forcefield.itp"
 
+#include "jz4.prm"
+
+
 [ moleculetype ]
 ; Name            nrexcl
 Protein_chain_A     3
@@ -24602,6 +24605,8 @@ Protein_chain_A     3
 #include "posre.itp"
 #endif
 
+#include "jz4.itp"
+
 ; Include water topology
 #include "./charmm36-mar2019.ff/tip3p.itp"
 
@@ -24617,8 +24622,11 @@ Protein_chain_A     3
 
 [ system ]
 ; Name
-LYSOZYME
+LYSOZYME in water
 
 [ molecules ]
 ; Compound        #mols
 Protein_chain_A     1
+JZ4                 1
+SOL         10288
+CL               6

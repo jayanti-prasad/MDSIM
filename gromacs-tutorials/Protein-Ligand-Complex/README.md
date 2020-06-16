@@ -156,7 +156,7 @@
     `gmx editconf -f jz4_ini.pdb -o jz4.gro`
 
     - Step 4: Now we have to create a 'gro' file which has coordinates of both the protein and ligand.
-     and for that we must copy the content from 'jz4.gro' file to a copy of the 'gro' file of the proten.
+     and for that we must copy the content from 'jz4.gro' file to a copy of the 'gro' file of the protein.
 
      So let us make a copy of the protein 'gro' file 
 
@@ -167,13 +167,66 @@
 
     - Step 5: This is most complex step and involve 'topol.top' file created for the protein 
      So you need to make the following changes in that:
-   
-     <img src="images/top_edit.png"> 
-
+     for that see the image below.
     
 <figure>
 <img src="images/top_edit.png" height="50%" width="50%">
 <figcaption> Editing topology file </figcaption>
 </figure>
    
+
+### 3. Defining the Unit Cell & Adding Solvent
+
+  - If the topology file is correct then you can run the following two commands without any issue.
+
+   `gmx editconf -f complex.gro -o newbox.gro -bt dodecahedron -d 1.0`
+
+   `gmx solvate -cp newbox.gro -cs spc216.gro -p topol.top -o solv.gro`
+
+    you can check the Gromacs tutorial page for the reference.
+
+  - Adding ions
+
+    `gmx grompp -f config/ions.mdp -c solv.gro -p topol.top -o ions.tpr`
+
+    `gmx genion -s ions.tpr -o solv_ions.gro -p topol.top -pname NA -nname CL -neutral` 
+
+    The second command asks for an input so give '15'
+
+
+### 4. Molecular dynamics simulations
+
+    Now we have all the ingredients in place so create an input file for the simulation with 
+
+    `gmx grompp -f config/em.mdp -c solv_ions.gro -p topol.top -o em.tpr`
+
+    Once our input file 'em.trp' is ready we can go ahead and start the simulation run with :
+
+    If you are successful you will get something like the following on your terminal.
+
+ 
+<figure>
+<img src="images/run1.png" height="50%" width="50%">
+<figcaption> Run starts </figcaption>
+</figure>
+       
+<figure>
+<img src="images/run2.png" height="50%" width="50%">
+<figcaption> Run completes </figcaption>
+</figure>
+
+
+## Thanks 
+
+Molecular dynamics simulations are some of the most complex simulations and even just
+repeating a tutorial is not easy. 99 % chances are that the topology file which you
+create for your problem will not work if do not understand the content.
+
+Once the simulation runs are over post processing is something for which I do not think
+anyone needs any tutorial.
+
+I will try to automate the whole process by writing my own python scripts so keep checking.
+
+
+
 
