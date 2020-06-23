@@ -1,15 +1,32 @@
 # Step by step procedure to run molecular dynamics simulations with NAMD 
 
+## What it is ?
 
+  Molecular dynamics is one of the most important areas of research and in order to be proficient,
+  productive and solve real life problems, such as drug design, one must have expertise in 
+  physics, chemistry, mathematics, biology, computer science and software engineering !
+  This is really an unreasonable requirement and so despite having outstanding numerical codes
+  available, such as GROMAX, and NAMD, may users feel helpless.
+
+  Here I am presenting a simple python script which can run a molecular dynamics simulation 
+  using NAMD end-to-end in a very smooth way, without requiring any GUI to be running.
+  This means that this script can be launched in an automatic way on cloud systems,
+  such as amazon AWS, without any difficulty.
+
+  
 ##  A. Software needed :
 
-  - CHIMERA  - This is used for visualizing as well well as for molecular docking with the help of AutoDock Vina .
+  - Python 3.6+
 
-  - VMD  - VMD is used in  GUI/Visual mode as well as command mode of various operations such as solvate, ionization, running namd simulation etc. Note that everything that can be done with the GUI can be done with the command line also.
+  - CHIMERA (optional)  - This is used for visualizing as well well as for molecular 
+     docking with the help of AutoDock Vina .
 
+  - VMD - Here  it is mostly used in  command mode for  various operations such as  Solvation
+    and neutrilization. However, GUI model is useful for post processing.
+ 
   - NAMD - For carrying out molecular dynamics simulations.
 
-  - Text-Editor - Any  editor such as vi note-pad etc will be fine.
+  - Text-Editor - Any  editor such as vi note-pad etc., will be fine.
 
 
 ##  B. Parameter Files:  
@@ -18,68 +35,55 @@
 
   - (ii) Input parameter for running NAMD simulations - [ par_all27_prot_lipid_na.inp]
 
-  - (iii) Configuration file : The main configuration file to run the script [namd_run.conf]
+  - (iii) Input configuration file : A template  configuration file to run the script [namd_run.conf].
+     The actual script to run the simulation will be created by the python program provided.  
 
 
-## C. Scripts : 
-  
-  - (i) A TCL file for creating psf file from pdb file.
-
-  - (ii) A TCL file for creating the geometry of the simulation (in case of periodic boundary box).
-
-
-##  D. Input Data 
+##  C. Input Data file 
 
   - PDB file of the docked ligand and protein 
 
 
-## E. Procedure
+##  D. Creating the config file 
 
-  - (i) Generating 'psf' file :- 
+    - The main purpose of the 'namd_preproc.py' is to create a configuration (input) file for running NMAD simulation.
 
-   There is a script as mentioned in C(i) and given [here](config_files/psf.gen) that can 
-   be used to generate the 'psf' file (as well as a modified pdb file).
+    - The script can be run in the following way:
 
-   Input to this script are two files : (a) topology file mentioned in B(i) and pdb data file mentioned in D.
+    - ` python namd_preproc.py  -i test_example.pdb  `
+      `  -t input/top_all27_prot_lipid.inp`
+      `  -p input/par_all27_prot_lipid_na.inp `
+      `  -c input/minimization.conf -o test_minimize.conf`
+    
+    - If you run the script with option '-h' it prints the help.
 
-   You must give the name of the output psf file and pdb file by editing the script appropriately.
-
-   Once the script is changed accordingly the following command can be used to create the psf & pdb files.
-
-   - `/Applications/VMD\ 1.9.4a42-Catalina-Rev5.app/Contents/vmd/vmd_MACOSXX86_64 -dispdev text -e psf.gen`
- 
-   Note that the first part of the command depends in the installation of vmd on your computer so do not try to
-   copy the command and file the path for the command for your machine.
-
-  - (ii) Solvation :- 
-
-   Once we have generated the 'psf' and modified 'pdb' file in step (i) we can do the solvation by running
-    the following command on the 'VMD' console.
+    - In the above command :
   
-  - ` package require solvate `	
+    . test_example.pdb  : input pdb file
+
+    . input/top_all27_prot_lipid.inp : input topology file
+    
+    . input/par_all27_prot_lipid_na.inp  : input parameter file
+
+    . input/minimization.conf  : template for the configuration file
+
+    . test_minimize.conf : output configuration file 
+
+## Running NAMD simulations 
  
-  - ` solvate ubq.psf ubq.pdb -t 5 -o ubq_wb`
+    Once the input configuration file is created we can launch the simulation with the following command.
 
-  IMPORTANT :
+   - ` namd2  +p8  test_minimize.conf > output.log & `
 
-   -  You change the directory path (PWD) to the path where we have generated the 'psf' 
-      and modified 'pdb' file.
+    Here :
 
-   - This command again creates one 'psf' and one 'pdb' file and the prefix for those can 
-     be given by the option '-o' as shown the in above command.
+    .  +p8 : Means we are using 8 cores 
+
+    . output.log  : Is the output (log) file 
 
 
-  - (iii) Ionization :- 
+    .  & : For running the job in background 
 
-     This also works exactly in the same was as (ii) and takes two input files (solvated psf and pdb files)
-     and generates two output files (solvated + ionized psf and pdb file). By default, it will add 
-     the prefix 'ionized' but if you want something else you can use that also with option '-o'.
+## Post processing : 
 
-   - `autoionize -psf ubq_wb.psf -pdb ubq_wb.pdb -neutralize`
-
-   - (iv) Run the NAMD simulations:
-
-      The simulation can be run with the following command.
-
-   - ` namd2  +p8  input.conf > output.log & `
-
+    To be added 
