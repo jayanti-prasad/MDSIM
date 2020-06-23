@@ -50,10 +50,10 @@
 
     - The script can be run in the following way:
 
-    - ` python namd_preproc.py  -i test_example.pdb  `
-      `  -t input/top_all27_prot_lipid.inp`
-      `  -p input/par_all27_prot_lipid_na.inp `
-      `  -c input/minimization.conf -o test_minimize.conf`
+    -  python namd_preproc.py  -i test_example.pdb  \
+        -t input/top_all27_prot_lipid.inp \
+        -p input/par_all27_prot_lipid_na.inp \
+        -c input/minimization.conf -o test_minimize.conf 
     
     - If you run the script with option '-h' it prints the help.
 
@@ -69,7 +69,7 @@
 
     . test_minimize.conf : output configuration file 
 
-## Running NAMD simulations 
+## E. Running NAMD simulations 
  
     Once the input configuration file is created we can launch the simulation with the following command.
 
@@ -84,6 +84,6 @@
 
     .  & : For running the job in background 
 
-## Post processing : 
+## F. Post processing : 
 
     To be added 
