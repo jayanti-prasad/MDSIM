@@ -23,6 +23,11 @@
 
 - [Computation of free energy] (http://bioinf.uab.cat/xavier/papers/helvchimacta_85-3113.pdf)
 
+- [Molecular dynamics] (https://en.wikipedia.org/wiki/Molecular_dynamics)
+
+- [Nature collections](https://www.nature.com/subjects/molecular-dynamics)
+
+
 ##  Contact 
  
 - prasad.jayanti@gmail.com  
