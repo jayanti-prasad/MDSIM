@@ -131,5 +131,4 @@ if __name__ == "__main__":
 
    update_config_file (args, ion_pdb,"box.txt")
 
-   #update_params (args, ion_pdb,  args.input_config_file, "box.txt", args.output_config_file)
 

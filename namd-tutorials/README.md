@@ -87,6 +87,9 @@
 
     . test_minimize.conf : output configuration file 
 
+    - You can check the definition of parameters in the config 
+        file [here](https://www.ks.uiuc.edu/Research/namd/2.9/ug/node12.html) 
+
 ## E. Running NAMD simulations 
  
     Once the input configuration file is created we can launch the simulation with the following command.
