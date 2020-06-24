@@ -34,10 +34,11 @@
   - CHIMERA (optional)  - This is used for visualizing as well well as for molecular 
      docking with the help of AutoDock Vina .
 
-  - VMD - Here  it is mostly used in  command mode for  various operations such as  Solvation
+  - [VMD](http://www.ks.uiuc.edu/Research/vmd/) - Here  it is mostly used in  
+      command mode for  various operations such as  Solvation
     and neutralization. However, GUI model is useful for post processing.
  
-  - NAMD - For carrying out molecular dynamics simulations.
+  - [NAMD](http://www.ks.uiuc.edu/Research/namd/) - For carrying out molecular dynamics simulations.
 
   - Text-Editor - Any  editor such as vi note-pad etc., will be fine.
 
