@@ -15,18 +15,16 @@
 
   The python script (see how to use below) does the following:
 
-  - Read a 'pdb' file and created a 'psf' as well a new 'pdb' file using a topology file
+  - Read a 'pdb' file and create a 'psf' as well a new 'pdb' file using a topology file
     supplied by the user.
 
   - Solvate the system wih water.
 
   - Neutralize the system with ions.
 
-  - Compute the geometry of the box for carrying the simulations.
+  - Compute the geometry of the box for carrying out the simulations.
 
   - Create a config file from a user given config file by making necessary changes.
-
-  
 
   
 ##  A. Software needed :
