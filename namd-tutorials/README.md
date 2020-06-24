@@ -61,7 +61,12 @@
 
     - The main purpose of the 'namd_preproc.py' is to create a configuration (input) file for running NMAD simulation.
 
-    - The script can be run in the following way:
+    - In order to run the script you must give the path to your VMD instllation (see line 5 in namd_preproc.py)
+      which for my case looks like :
+
+      VMD="/Applications/VMD\ 1.9.4a42-Catalina-Rev5.app/Contents/vmd/vmd_MACOSXX86_64"
+
+    - Once the path to VMD is set the script can be run in the following way:
 
     -  python namd_preproc.py  -i test_example.pdb  \
         -t input/top_all27_prot_lipid.inp \
@@ -96,6 +101,12 @@
 
 
     .  & : For running the job in background 
+
+   - Important :
+   
+     The above command assumes that 'namd2' is in your path if that is not the case then
+     wither give the full path to the command or set the path accordingly.
+
 
 ## F. Post processing : 
 
