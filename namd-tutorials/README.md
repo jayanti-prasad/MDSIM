@@ -6,7 +6,7 @@
   productive and solve real life problems, such as drug design, one must have expertise in 
   physics, chemistry, mathematics, biology, computer science and software engineering !
   This is really an unreasonable requirement and so despite having outstanding numerical codes
-  available, such as GROMAX, and NAMD, may users feel helpless.
+  available, such as GROMAX, and NAMD, many users feel helpless.
 
   Here I am presenting a simple python script which can run a molecular dynamics simulation 
   using NAMD end-to-end in a very smooth way, without requiring any GUI to be running.
