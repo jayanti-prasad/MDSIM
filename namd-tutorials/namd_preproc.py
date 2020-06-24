@@ -2,6 +2,7 @@ import os
 import sys
 import argparse 
 from  update_params import update_config_file
+from shutil import copyfile
 
 
 VMD="/Applications/VMD\ 1.9.4a42-Catalina-Rev5.app/Contents/vmd/vmd_MACOSXX86_64"
@@ -99,11 +100,29 @@ def find_box(input_pdb):
    os.system(VMD + "  -dispdev text -e tmp.tcl > box.txt")
    os.remove("tmp.tcl")
 
-  
+
+def copy_files (args,pdb_file):
+
+   os.makedirs (args.run_dir,exist_ok=True)
+ 
+   psf_file = pdb_file.replace(".pdb",".psf")
+
+   files_to_copy = [args.topology_file,args.params_file,\
+     args.output_config_file,psf_file,pdb_file]
+
+   for f in files_to_copy:
+      copyfile(f,args.run_dir + os.sep + os.path.basename (f))
+
+   os.remove(pdb_file)
+   os.remove(psf_file)
+
+
 if __name__ == "__main__":
 
    parser = argparse.ArgumentParser()
    parser.add_argument('-i','--input-pdb-file',help='Input pdb file')
+   parser.add_argument('-r','--run-dir',help='Run dir',default="test_run")
+   parser.add_argument('-f','--output-prefix',help='Output prefix',default="test")
    parser.add_argument('-t','--topology-file',help='Input topology file',\
        default='input/top_all27_prot_lipid.inp')
    parser.add_argument('-p','--params-file',help='NAMD input param file',\
@@ -131,4 +150,5 @@ if __name__ == "__main__":
 
    update_config_file (args, ion_pdb,"box.txt")
 
+   copy_files (args,ion_pdb)
 
