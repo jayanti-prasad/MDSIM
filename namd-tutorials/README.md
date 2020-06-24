@@ -8,15 +8,15 @@
   This is really an unreasonable requirement and so despite having outstanding numerical codes
   available, such as GROMAX, and NAMD, many users feel helpless.
 
-  Here I am presenting a simple python script which can run a molecular dynamics simulation 
+  Here I am presenting here a simple python script which can run a molecular dynamics simulation 
   using NAMD end-to-end in a very smooth way, without requiring any GUI to be running.
   This means that this script can be launched in an automatic way on cloud systems,
   such as amazon AWS, without any difficulty.
 
   The python script (see how to use below) does the following:
 
-  - Read a 'pdb' file and create a 'psf' as well a new 'pdb' file using a topology file
-    supplied by the user.
+  - Reads a 'pdb' file (protein + ligand docked) and creates a 'psf' as well a new 'pdb' 
+    file using a topology file supplied by the user.
 
   - Solvate the system wih water.
 
@@ -31,12 +31,13 @@
 
   - Python 3.6+
 
-  - CHIMERA (optional)  - This is used for visualizing as well well as for molecular 
-     docking with the help of AutoDock Vina .
+  - [CHIMERA](http://www.cgl.ucsf.edu/chimera/about.html) (optional)  - This is used for 
+    visualizing as well well as for molecular  docking with the help of 
+   [AutoDock Vina] (http://vina.scripps.edu/) .
 
   - [VMD](http://www.ks.uiuc.edu/Research/vmd/) - Here  it is mostly used in  
-      command mode for  various operations such as  Solvation
-    and neutralization. However, GUI model is useful for post processing.
+      a command mode for  various operations such as  Solvation
+    and neutralization. However, GUI mode is useful for post processing.
  
   - [NAMD](http://www.ks.uiuc.edu/Research/namd/) - For carrying out molecular dynamics simulations.
 
@@ -55,7 +56,7 @@
 
 ##  C. Input Data file 
 
-  - PDB file of the docked ligand and protein 
+  - PDB file of the docked ligand + protein  system. 
 
 
 ##  D. Creating the config file 
@@ -78,15 +79,15 @@
 
     - In the above command :
   
-    . test_example.pdb  : input pdb file
+    * test_example.pdb  : input pdb file
 
-    . input/top_all27_prot_lipid.inp : input topology file
+    * input/top_all27_prot_lipid.inp : input topology file
     
-    . input/par_all27_prot_lipid_na.inp  : input parameter file
+    * input/par_all27_prot_lipid_na.inp  : input parameter file
 
-    . input/minimization.conf  : template for the configuration file
+    * input/minimization.conf  : template for the configuration file
 
-    . test_minimize.conf : output configuration file 
+    * test_minimize.conf : output configuration file 
 
     
  You can check the definition of parameters in the config 
@@ -110,9 +111,16 @@
    - Important :
    
      The above command assumes that 'namd2' is in your path if that is not the case then
-     wither give the full path to the command or set the path accordingly.
+     either give the full path to the full command or set the path accordingly.
 
 
 ## F. Post processing : 
 
     To be added 
+
+## G. Feedback 
+ 
+    prasad.jayanti@gmail.com
+
+
+
