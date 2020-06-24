@@ -13,6 +13,21 @@
   This means that this script can be launched in an automatic way on cloud systems,
   such as amazon AWS, without any difficulty.
 
+  The python script (see how to use below) does the following:
+
+  - Read a 'pdb' file and created a 'psf' as well a new 'pdb' file using a topology file
+    supplied by the user.
+
+  - Solvate the system wih water.
+
+  - Neutralize the system with ions.
+
+  - Compute the geometry of the box for carrying the simulations.
+
+  - Create a config file from a user given config file by making necessary changes.
+
+  
+
   
 ##  A. Software needed :
 
@@ -22,7 +37,7 @@
      docking with the help of AutoDock Vina .
 
   - VMD - Here  it is mostly used in  command mode for  various operations such as  Solvation
-    and neutrilization. However, GUI model is useful for post processing.
+    and neutralization. However, GUI model is useful for post processing.
  
   - NAMD - For carrying out molecular dynamics simulations.
 
