@@ -19,6 +19,9 @@
 
 ## References 
 
+- [Introduction to Molecular Dynamics (Queensland)] (http://compbio.biosci.uq.edu.au/education/mdcourse/index.html)
+
+
 - [Introduction to Molecular Dynamics Simulation (P. Allen)] (https://udel.edu/~arthij/MD.pdf)
 
 - [Computation of free energy] (http://bioinf.uab.cat/xavier/papers/helvchimacta_85-3113.pdf)
