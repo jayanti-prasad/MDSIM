@@ -1,7 +1,7 @@
 import os
 import sys
 import argparse 
-from  update_params import update_config_file
+from  update_params import update_config_file,update_nvt_file
 from shutil import copyfile
 
 
@@ -128,9 +128,9 @@ if __name__ == "__main__":
    parser.add_argument('-p','--params-file',help='NAMD input param file',\
        default='input/par_all27_prot_lipid_na.inp')
    parser.add_argument('-c','--input-config-file',help='NAMD config file',\
-       default='input/minimization.conf')
+       default='input/minimum.conf')
    parser.add_argument('-o','--output-config-file',help='NAMD output config file',\
-       default='namd_minimize.conf')
+       default='test_minimum.conf')
 
    args = parser.parse_args()
 
@@ -151,4 +151,9 @@ if __name__ == "__main__":
    update_config_file (args, ion_pdb,"box.txt")
 
    copy_files (args,ion_pdb)
+
+   update_nvt_file (args,ion_pdb)
+
+
+
 
