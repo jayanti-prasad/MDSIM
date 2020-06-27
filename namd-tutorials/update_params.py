@@ -11,11 +11,11 @@ def update_config_file (args, input_pdb, box_file):
     prefix = input_pdb.replace(".pdb","")
 
     box_params=["cellBasisVector1","cellBasisVector2",\
-       "cellBasisVector3"]
+       "cellBasisVector3","cellOrigin"]
 
     file_params =["structure","coordinates"]
 
-    skip_lines = box_params + file_params + ["parameters","cellOrigin","outputName"]
+    skip_lines = box_params + file_params + ["parameters","outputName"]
 
     F= {file_params[0]: os.path.basename(prefix+".psf"), file_params[1]: os.path.basename(prefix+".pdb")}
 
@@ -32,22 +32,14 @@ def update_config_file (args, input_pdb, box_file):
            P[parts[0]] = " ".join(parts[1:])
 
     fp = open (output_config_file, "w")
-    box_count = 0 
-    bc = [] 
     for line in param_lines:
        parts = line.split(" ")
        if parts[0] not in skip_lines:
           fp.write(line+"\n")
        if parts[0] in box_params:
           tt = P[parts[0]].split(" ") 
-          bc.append (float(tt[box_count])/2)
-          box_count +=1
           print("updating: ", parts[0])
           fp.write(parts[0] + "   " +  P[parts[0]]+"\n") 
-
-       if parts[0] == "cellOrigin":
-          bc = [str(x) for x in bc]
-          fp.write(parts[0] + "   "+ " ".join(bc)+"\n") 
 
        if parts[0] in file_params:
           print("updating: ", parts[0])
