@@ -17,7 +17,7 @@ def update_config_file (args, input_pdb, box_file):
 
     skip_lines = box_params + file_params + ["parameters","cellOrigin","outputName"]
 
-    F= {file_params[0]: prefix+".psf", file_params[1]: prefix+".pdb"}
+    F= {file_params[0]: os.path.basename(prefix+".psf"), file_params[1]: os.path.basename(prefix+".pdb")}
 
     with open (input_config_file,"r") as fp:
        param_lines = fp.read().split("\n")
